@@ -6,7 +6,9 @@ import Home from './Components/Home.jsx'
 import Root from './Components/Root.jsx'
 import CategoryNews from './Components/CategoryNews.jsx'
 import ErrorPage from './Components/ErrorPage.jsx'
-
+import Login from './Components/Login.jsx'
+import Register from './Components/Register.jsx'
+import AuthLayout from './Components/AuthLayout.jsx'
 
 let router = createBrowserRouter([
   {
@@ -21,6 +23,20 @@ let router = createBrowserRouter([
         path: '/category/:id',
         loader: () => fetch('/news.json'),
         element: <CategoryNews></CategoryNews>
+      }
+    ]
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: '/auth/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/auth/register',
+        element: <Register></Register>
       }
     ]
   },
