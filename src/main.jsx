@@ -9,6 +9,7 @@ import ErrorPage from './Components/ErrorPage.jsx'
 import Login from './Components/Login.jsx'
 import Register from './Components/Register.jsx'
 import AuthLayout from './Components/AuthLayout.jsx'
+import AuthProvider from './Provider/AuthProvider.jsx'
 
 let router = createBrowserRouter([
   {
@@ -49,6 +50,8 @@ let router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>,
 )
