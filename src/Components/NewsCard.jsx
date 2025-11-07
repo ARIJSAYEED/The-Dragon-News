@@ -1,9 +1,11 @@
 import React from "react";
 import { FaRegBookmark, FaShareAlt, FaStar, FaRegEye } from "react-icons/fa";
 import { format } from "date-fns";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
     const {
+        id,
         title,
         rating,
         total_view,
@@ -14,7 +16,7 @@ const NewsCard = ({ news }) => {
     } = news;
 
     return (
-        <div className="border border-base-300 rounded-sm overflow-hidden shadow-lg bg-white">
+        <Link  to={`/news-details/${id}`}><div className="border border-base-300 rounded-sm overflow-hidden shadow-lg bg-white">
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-4 bg-base-200">
                 <div className="flex items-center gap-3">
@@ -62,9 +64,9 @@ const NewsCard = ({ news }) => {
                     </span>{" "}
                     – {details.slice(0, 160)}...
                 </p>
-                <button className="text-orange-500 font-semibold mt-2 hover:underline">
+                <Link to={`/news-details/${id}`} className="text-orange-500 font-semibold mt-2 hover:underline">
                     Read More
-                </button>
+                </Link>
             </div>
 
             <hr className="my-3 mx-5 border-base-300" />
@@ -89,7 +91,8 @@ const NewsCard = ({ news }) => {
                     <span>{total_view}</span>
                 </div>
             </div>
-        </div>
+        </div></Link>
+        
     );
 };
 

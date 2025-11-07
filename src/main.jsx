@@ -10,6 +10,7 @@ import Login from './Components/Login.jsx'
 import Register from './Components/Register.jsx'
 import AuthLayout from './Components/AuthLayout.jsx'
 import AuthProvider from './Provider/AuthProvider.jsx'
+import NewsDetails from './Components/NewsDetails.jsx'
 
 let router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ let router = createBrowserRouter([
         element: <Register></Register>
       }
     ]
+  },
+  {
+    path: '/news-details/:id',
+    element: <NewsDetails></NewsDetails>,
+    loader:()=>fetch('/news.json')
   },
   {
     path: '/*',
