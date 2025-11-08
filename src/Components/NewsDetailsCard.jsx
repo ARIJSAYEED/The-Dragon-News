@@ -6,7 +6,7 @@ const NewsDetailsCard = ({news}) => {
     return (
         <div className='space-y-5 p-8 border border-base-300 shadow-lg rounded-sm'>
             <div>
-                <img className='w-[790px] rounded-sm object-cover' src={news.image_url} alt="" />
+                <img className='w-full h-[410px] rounded-sm object-cover' src={news.image_url} alt="" />
             </div>
             <div>
                 <h1 className='text-2xl font-bold'>{news.title}</h1>
