@@ -11,6 +11,8 @@ import Register from './Components/Register.jsx'
 import AuthLayout from './Components/AuthLayout.jsx'
 import AuthProvider from './Provider/AuthProvider.jsx'
 import NewsDetails from './Components/NewsDetails.jsx'
+import PrivateRoute from './Provider/PrivateRoute.jsx'
+import Loading from './Components/Loading.jsx'
 
 let router = createBrowserRouter([
   {
@@ -25,7 +27,8 @@ let router = createBrowserRouter([
       {
         path: '/category/:id',
         loader: () => fetch('/news.json'),
-        element: <CategoryNews></CategoryNews>
+        element: <CategoryNews></CategoryNews>,
+        hydrateFallbackElement: <Loading></Loading>
       }
     ]
   },
@@ -45,8 +48,11 @@ let router = createBrowserRouter([
   },
   {
     path: '/news-details/:id',
-    element: <NewsDetails></NewsDetails>,
-    loader: () => fetch('/news.json')
+    element: <PrivateRoute>
+      <NewsDetails></NewsDetails>
+    </PrivateRoute>,
+    loader: () => fetch('/news.json'),
+    hydrateFallbackElement: <Loading></Loading>
   },
   {
     path: '/*',

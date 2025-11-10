@@ -31,7 +31,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className='flex gap-3 w-1/3 justify-end'>
-                <img src={UserIcon} alt="" />
+                <img className='h-10 w-10 rounded-full object-cover' src={`${user? user.photoURL : UserIcon}`} alt="" />
                 {
                     user
                         ?
