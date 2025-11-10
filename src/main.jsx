@@ -16,6 +16,7 @@ let router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -45,7 +46,7 @@ let router = createBrowserRouter([
   {
     path: '/news-details/:id',
     element: <NewsDetails></NewsDetails>,
-    loader:()=>fetch('/news.json')
+    loader: () => fetch('/news.json')
   },
   {
     path: '/*',

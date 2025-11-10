@@ -8,14 +8,15 @@ const Register = () => {
         e.preventDefault()
         let email = e.target.email.value;
         let password = e.target.password.value;
-        let name = e.target.name.value;
-        let photo = e.target.photo.value;
-        console.log(name, email, password, photo);
+        // let name = e.target.name.value;
+        // let photo = e.target.photo.value;
+        // console.log(name, email, password, photo);
 
 
         createUser(email, password)
             .then(result => {
                 // console.log(result.user);
+                alert('Registration Successfull')
                 setUser(result.user)
             })
             .catch(error => {

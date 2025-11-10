@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NewsDetailsCard = ({news}) => {
-    console.log(news);
+const NewsDetailsCard = ({ news }) => {
+    // console.log(news);
     return (
-        <div className='space-y-5 p-8 border border-base-300 shadow-lg rounded-sm'>
+        <div className='space-y-5 p-8 border border-neutral-300 shadow-lg rounded-sm'>
             <div>
                 <img className='w-full h-[410px] rounded-sm object-cover' src={news.image_url} alt="" />
             </div>

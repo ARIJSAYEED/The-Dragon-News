@@ -6,12 +6,12 @@ import { useLoaderData, useParams } from 'react-router';
 
 const NewsDetails = () => {
     let data = useLoaderData();
-    let {id} = useParams();
-    let [news,setNews] = useState({});
-    useEffect(()=>{
-        let NewsDetails = data.find(singleNews=>singleNews.id == id)
+    let { id } = useParams();
+    let [news, setNews] = useState({});
+    useEffect(() => {
+        let NewsDetails = data.find(singleNews => singleNews.id == id)
         setNews(NewsDetails)
-    },[data,id])
+    }, [data, id])
     return (
         <div className='max-w-[1340px] mx-auto space-y-5'>
             <header>

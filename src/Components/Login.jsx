@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
 
+    let { signInUser } = use(AuthContext)
+
     let handleSubmit = (e) => {
+
         e.preventDefault()
 
+        let email = e.target.email.value;
+        let password = e.target.password.value;
+
+        signInUser(email, password)
+            .then(result => {
+                alert('LoggedIn Successfully!')
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -22,10 +36,10 @@ const Login = () => {
                         <fieldset className="fieldset mb-3 space-y-2">
 
                             <label className="label font-semibold text-black">Email</label>
-                            <input type="email" className="input w-full" placeholder="Enter your email" />
+                            <input name='email' type="email" className="input w-full" placeholder="Enter your email" />
 
                             <label className="label font-semibold text-black">Password</label>
-                            <input type="password" className="input w-full" placeholder="Password" />
+                            <input name='password' type="password" className="input w-full" placeholder="Password" />
 
                             <button type='submit' className="btn btn-neutral mt-4">Login</button>
                         </fieldset>
